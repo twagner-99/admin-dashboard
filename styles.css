@@ -14,17 +14,27 @@
 
 body {
     height: 100vh;
-    display: grid;
-    grid-template-columns: minmax(180px, 1fr) 6fr;  /* Don't get any smaller than 180px, but don't take up more than 1fr of remaining space */
-    grid-template-rows: 1fr 6fr;      /* Chose to explicitly define rows to not only make them the right proportions right off the bat, but also so I can use grid-row: 1 / -1; because if additional row get added, this way the side bar will automatically span all of it. */
-}                                     /* I could have let it implicitly define my rows, but then I would need grid-row: 1 / 3; AND it would size based on the height of my content */
+    display: flex;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;               /* This is needed to span the full horizontal width. Without it, the children stretch to fill their parent container only, which is .right, which is just a div that's as wide as its content because its a flex item. If it wasn't a flex item, divs span the width of their parent and .right's parent is body  */
+}
+
+.header {
+    height: 15%;
+}
+
+.main {
+    flex-grow: 1;
+}
 
 .sidebar {
     background-color: var(--blue);
-    grid-row: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;  /* Let the last row drive the layout by trying to take up the whole height using 1fr, then let the first two columns only be as high as their content */
+    display: flex;
+    flex-direction: column;
     gap: 50px;
     padding: 15px;
     color: white;
