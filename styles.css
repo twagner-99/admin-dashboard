@@ -31,9 +31,9 @@ body {
 }
 
 .sidebar .link {
-    display: flex; /* Used flex b/c all I wanted to do was get two divs next to each other and I don't care about controlling column size */
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: 15px;
-    align-items: center;
 }
 
 .link:nth-child(n + 2) {    /* Selects every element with class="link" beginning with the 2nd */
