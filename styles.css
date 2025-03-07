@@ -31,9 +31,9 @@ body {
 }
 
 .sidebar .link {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .link:nth-child(n + 2) {    /* Selects every element with class="link" beginning with the 2nd */
