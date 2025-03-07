@@ -24,7 +24,7 @@ body {
     grid-row: 1 / -1;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;  /* Let the last row drive the layout by trying to take up the whole height using 1fr, then let the first two columns only be as high as their content */
+    grid-template-rows: repeat(3, min-content);  /* Using min-content so the rows don't try to span the entire height of the sidebar container like they'd do with auto of fractional units */
     gap: 50px;
     padding: 15px;
     color: white;
@@ -33,11 +33,8 @@ body {
 .sidebar .link {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 15px;
-}
-
-.link:nth-child(n + 2) {    /* Selects every element with class="link" beginning with the 2nd */
-    margin: .25rem 0;       /* Margin, not padding, because we want to push adjacent elements apart */
+    column-gap: 10px;
+    row-gap: 15px;
 }
 
 .main {
