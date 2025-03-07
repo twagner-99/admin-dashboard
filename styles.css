@@ -36,8 +36,10 @@ body {
     align-items: center;
 }
 
-.link:nth-child(n + 2) {    /* Selects every element with class="link" beginning with the 2nd */
-    margin: .25rem 0;       /* Margin, not padding, because we want to push adjacent elements apart */
+.sidebar > div {            /* So far, flex has required more code to get the sidebar aligned. I needed two flex containers which means more CSS and way more HTML */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .main {
