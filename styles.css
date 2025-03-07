@@ -13,12 +13,22 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto auto;      /* Chose this route so I can use grid-row: 1 / -1; because if additional row get added, this way the side bar will automatically span all of it. */
-}                                       /* I could have let it implicitly define my rows, but then I would need grid-row: 1 / 3; */
+    grid-template-rows: 1fr 6fr;      /* Chose this route so I can use grid-row: 1 / -1; because if additional row get added, this way the side bar will automatically span all of it. */
+}                                     /* I could have let it implicitly define my rows, but then I would need grid-row: 1 / 3; AND it would size based on the height of my content */
 
 .sidebar {
     background-color: var(--blue);
     grid-row: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;  /* Let the last row drive the layout by trying to take up the whole height using 1fr, then let the first two columns only be as high as their content */
+    gap: 50px;
+    padding: 15px;
+}
+
+.sidebar .link {
+    display: flex;
+    gap: 15px;
 }
 
 .main {
