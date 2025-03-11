@@ -11,6 +11,7 @@
     box-sizing: border-box;
     list-style: none;
     font-family: var(--font-stack);
+    font-size: 100%;
 }
 
 body {
@@ -46,14 +47,14 @@ body > div {
     grid-template-rows: 1fr 1fr;
 }
 
-.header-one > *,
-.header-two > * {
+.header-top > *,
+.header-bottom > * {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.header-one {
+.header-top {
     display: grid;
     grid-template-columns: 1fr auto; /* Let the search bar take up as much as possible, then the right side gets whatever is left (essentially min-content) */
     grid-template-rows: min-content;
@@ -64,15 +65,53 @@ body > div {
     justify-self: end;
 }
 
-.header-two {
+.header-bottom {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: min-content;
-    align-content: end;
+    place-content: end;
 }
 
 .main {
     background-color: var(--grey);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 15px;
+}
+
+.main-left > h1,
+.main-right > h1 {
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background-color: white;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.icons {
+    justify-self: end;
+    margin-top: 15px;
+}
+
+.card-container ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.main-right p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 input {
@@ -82,4 +121,12 @@ input {
     background-color: var(--grey);
     flex-grow: 1;
     padding: .25rem .5rem;
+}
+
+button {
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 15px;
+    padding: .5rem 1rem;
 }
