@@ -46,27 +46,29 @@ body > div {
     grid-template-rows: 1fr 1fr;
 }
 
-.header-one {
-    display: flex;
-    align-items: flex-start;
-    gap: 15%;
-}
-
-.search-bar {
-    flex-grow: 1;
-    align-items: center;
-}
-
-.header-two {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .header-one > *,
 .header-two > * {
     display: flex;
+    align-items: center;
     gap: 15px;
+}
+
+.header-one {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Let the search bar take up as much as possible, then the right side gets whatever is left (essentially min-content) */
+    grid-template-rows: min-content;
+    gap: 15%;
+}
+
+.end {
+    justify-self: end;
+}
+
+.header-two {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: min-content;
+    align-content: end;
 }
 
 .main {
