@@ -81,7 +81,7 @@ body > div {
 }
 
 .main-left > h1,
-.main-right > h1 {
+.main-right > div > h1 {
     margin-bottom: 10px;
 }
 
@@ -98,14 +98,22 @@ body > div {
     grid-template-rows: auto 1fr auto;
 }
 
-.main-left .card {
+/* IF USING FLEX
+/* .main-left .card {
     display: flex;
-    overflow: hidden; /* Needed otherwise you will see square corners because the children overflow out */
+    overflow: hidden; Needed otherwise you will see square corners because the children overflow out
     border-radius: 15px;
+} */
+
+.main-left .card {
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .yellow {
-    min-width: 1rem;
+    /* min-width: 1rem; */ /* IF USING FLEX */
     background-color: var(--yellow);
 }
 
@@ -119,6 +127,19 @@ body > div {
     gap: 1rem;
 }
 
+.main-right {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+}
+
+/* IF USING FLEX. THIS SEEMS BETTER SINCE WE WANT EVERYTHING TO JUST BE AS TALL AS ITS CONTENT. MAYBE WHENEVER I WANT TO USE AUTO AND 1FR FLEX IS BETTER BC THIS MEANS THE CONTENT IS DRIVING THE LAYOUT, UNLESS USING FLEX MEANS CREATING A BUNCH OF EXTRA CONTAINERS */
+/* .main-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+} */
+
 .main-right p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -128,8 +149,11 @@ body > div {
 
 .main-right .card {
     background-color: white;
-    padding: 0 1.5rem;
     border-radius: 15px;
+}
+
+.announce {
+    padding: 0 1.5rem;
 }
 
 .announce > div:nth-last-child(n + 2) {     /* Select every direct div child within .announce starting with the second from the bottom and counting backwards */
@@ -138,6 +162,15 @@ body > div {
 
 .announce > div {
     padding: 1.5rem 0;
+}
+
+.trending {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 15px;
+    padding: 1.5rem;
 }
 
 input {
