@@ -237,3 +237,13 @@ img {
     height: 3.5rem;
     width: auto;
 }
+
+.credits {
+    align-self: end;
+    font-weight: 300;
+    font-size: .6rem;
+}
+
+.credits a {
+    color: white;
+}
