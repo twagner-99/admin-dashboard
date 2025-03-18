@@ -46,11 +46,22 @@ body > div {
 
 .header { 
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
 }
 
-.header-top > *,
-.header-bottom > * {
+.header-top > * {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pfp-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-container {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -212,7 +223,17 @@ svg {
     width: auto;
 }
 
+img.icon {
+    height: 1.5rem;
+    width: auto;
+}
+
+.main-pfp {
+    height: 5rem;
+    width: auto;
+}
+
 img {
-    height: 1.25rem;
+    height: 3.5rem;
     width: auto;
 }
